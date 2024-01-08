@@ -1,27 +1,4 @@
--- vim options (use :h options to see their meaning)
-vim.opt.number = true
-vim.opt.relativenumber = true
-
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-
-vim.opt.wrap = false
-
-vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-
-vim.opt.clipboard = "unnamedplus"
-
-vim.opt.scrolloff = 999
-
-vim.opt.virtualedit = "block"
-
-vim.opt.inccommand = "split"
-
-vim.opt.ignorecase = true
-
-vim.opt.termguicolors = true
+require("options")
 
 -- sets up lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -36,9 +13,4 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-   "EdenEast/nightfox.nvim", 
-})
-
-vim.cmd.colorscheme("nordfox")
+require("lazy").setup("plugins")
