@@ -70,6 +70,7 @@ end
 
 function KeyMap.harpoon()
     --local hooks_setup = harpoon.hooks_setup --this should be true before running the following, at the moment this is ensured by lazy.nvim
+    local harpoon = require('harpoon')
     local conf = require('telescope.config').values
     local function toggle_telescope(harpoon_files)
         local file_paths = {}

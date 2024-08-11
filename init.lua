@@ -15,7 +15,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
-vim.cmd.colorscheme('tokyonight')
+-- tokyonight
+--vim.cmd.colorscheme('tokyonight')
+-- nord
+vim.cmd.colorscheme('nordic')
 
 local keyMaps = require("keymaps")
 keyMaps.config()
