@@ -32,6 +32,7 @@ symlink_pairs=(
   "nvim:$CONFIG_HOME"
   "tmux:$CONFIG_HOME"
   "starship.toml:$CONFIG_HOME"
+  ".zshrc:$HOME"
 )
 
 #create_directories "${cfg_directories[@]}"
