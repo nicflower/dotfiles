@@ -1,0 +1,38 @@
+#!/bin/bash
+
+CONFIG_HOME="$HOME/.config"
+DOTFILES_DIR=$(cd $(dirname $0) && pwd)
+
+echo "config home: $CONFIG_HOME"
+echo "dot files dir: $DOTFILES_DIR"
+
+create_directories() {
+  local directories=("$@")
+  for dir in "${directories[@]}"; do
+    mkdir -p "$dir"
+  done
+}
+
+create_symlinks() {
+  local items=("$@")
+  for item in "${items[@]}"; do
+    IFS=':' read -r source target <<<"$item"
+    local simlink=$target/$source
+    if [ -e "$simlink" ]; then
+      printf "\e[1;33m$simlink already exists. Skipping...\e[0m\n"
+      continue
+    fi
+    ln -s "$DOTFILES_DIR/$source" "$target"
+    printf "\e[1;32mCreated symlink $simlink\e[0m\n"
+  done
+}
+
+symlink_pairs=(
+  "alacritty:$CONFIG_HOME"
+  "nvim:$CONFIG_HOME"
+  "tmux:$CONFIG_HOME"
+  "starship.toml:$CONFIG_HOME"
+)
+
+#create_directories "${cfg_directories[@]}"
+create_symlinks "${symlink_pairs[@]}"
