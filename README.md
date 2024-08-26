@@ -1,5 +1,5 @@
 # Dotfiles repo
-This repository contains configuration files and setup scripts designed to streamline the configuration of software across different machines. It is tailored to my specific needs, but feel free to use or adapt anything you find helpful. Note that this project is not intended for universal use.
+This repository contains configuration files ([dotfiles](https://wiki.archlinux.org/title/Dotfiles)) and setup scripts designed to streamline the configuration of software across different machines. It is tailored to my specific needs, but feel free to use or adapt anything you find helpful. Note that this project is not intended for universal use.
 
 ## Installation
 To install the configuration simply run the setup script from any directory:
@@ -13,6 +13,8 @@ this will create simlinks pointing to the dotfiles directory where the configura
 - [ ] improve how the directories are handled in the setup script;
 - [ ] define color variables for the messages in the setup script;
 
+## Acknowledgments
+This setup is heavily inspired by [mischavandenburg's dotfiles](https://github.com/mischavandenburg/dotfiles), thanks for the inspiration.
 
 
 
