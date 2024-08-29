@@ -31,6 +31,18 @@ function KeyMap.config()
     vim.keymap.set('n', '<leader>ex', ':Explore<cr>', { desc = '[EX]plorer' })
     KeyMap.lsp()
     KeyMap.harpoon()
+    vim.keymap.set(
+        'n',
+        '<leader>a',
+        '<cmd>lua require("fastaction").code_action()<CR>',
+        { buffer = bufnr }
+    )
+    vim.keymap.set(
+        'v',
+        '<leader>a',
+        "<esc><cmd>lua require('fastaction').range_code_action()<CR>",
+        { buffer = bufnr }
+    )
 end
 
 function KeyMap.lsp()
