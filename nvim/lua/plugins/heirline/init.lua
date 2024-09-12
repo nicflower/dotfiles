@@ -68,6 +68,7 @@ return {
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
         'lewis6991/gitsigns.nvim',
+        'SmiteshP/nvim-navic',
 	},
 	config = function()
 		local utils = require("heirline.utils")
@@ -85,12 +86,17 @@ return {
             inactiveStatusLine(conditions),defaultStatusLine(utils)
         }
 
+        local code_context = require("plugins.heirline.code_context_component")
+        local winbar = {
+            code_context,
+        }
 
 		require("heirline").setup({
 			opts = {
 				colors = colors(),
 			},
 			statusline = statusLines,
+            winbar = winbar,
         })
 	end,
 	--[[opts = { 

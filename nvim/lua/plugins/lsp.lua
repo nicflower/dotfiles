@@ -125,4 +125,27 @@ return {
         end
     },
 
+    {
+        'SmiteshP/nvim-navic',
+        dependencies = {
+            'neovim/nvim-lspconfig',
+        },
+        config = function ()
+            local supportedLSP = {"lua_ls", "rust-analyzer"} -- can not find a smarter way, ideally we would like to get a list of all the installed lsp servers
+            local on_attach = function(client, bufnr)
+                if client.server_capabilities.documentSymbolProvider then
+                    local navic = require("nvim-navic")
+                    navic.attach(client, bufnr)
+                end
+            end
+            local lspconfig = require("lspconfig")
+            for _, lsp in ipairs(supportedLSP) do
+                if lspconfig[lsp] ~= nil then
+                    lspconfig[lsp].setup {
+                        on_attach = on_attach,
+                    }
+                end
+            end
+        end
+    }
 }

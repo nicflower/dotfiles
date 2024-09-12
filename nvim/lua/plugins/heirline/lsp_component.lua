@@ -1,6 +1,5 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
-local lsp_string_color = utils.get_highlight("String").fg;
 ActiveLsp = {
     condition = conditions.lsp_attached,
     update = {'LspAttach', 'LspDetach'},
