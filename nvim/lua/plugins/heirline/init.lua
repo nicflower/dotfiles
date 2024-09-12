@@ -23,6 +23,9 @@ local function colors()
 	    git_del = git_del,
 	    git_add = utils.get_highlight("diffAdded").fg,
 	    git_change = utils.get_highlight("diffChanged").fg,
+        git_branch = utils.get_highlight("Comment").fg,
+        dateTime = utils.get_highlight("Comment").fg,
+        lsp = utils.get_highlight("Comment").fg,
     }
 end
 

@@ -95,15 +95,15 @@ local FileFormat = {
 	end
 }
 
-local FileLastModified = {
+--[[local FileLastModified = {
 	provider = function()
 		local ftime = vim.fn.getftime(vim.api.nvim_buf_get_name(0))
 		return (ftime > 0) and os.date("%d/%m/%Y %H:%M", ftime)
 	end,
 	hl = {
-		fg = utils.get_highlight("Comment").fg
+		fg = "dateTime",
 	}
-}
+}]]--
 
 
-return { FileNameBlock, Space, FileFormat, Space, FileLastModified}
+return { FileNameBlock, Space, FileFormat, Space}

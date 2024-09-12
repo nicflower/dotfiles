@@ -9,7 +9,7 @@ local git = {
     end,
 
 
-    hl = { fg = "orange" },
+    hl = { fg = "git_branch" },
 
 
 
@@ -17,7 +17,6 @@ local git = {
         provider = function(self)
             return " " .. self.status_dict.head
         end,
-        hl = { bold = true }
     },
     {
 
@@ -31,14 +30,12 @@ local git = {
             local count = self.status_dict.added or 0
             return count > 0 and ("+" .. count)
         end,
-        hl = { fg = "git_add" },
     },
     {
         provider = function(self)
             local count = self.status_dict.removed or 0
             return count > 0 and ("-" .. count)
         end,
-        hl = { fg = "git_del" },
     },
     {
         provider = function(self)
@@ -47,7 +44,6 @@ local git = {
             return count > 0 and ("~" .. count)
 
         end,
-        hl = { fg = "git_change" },
     },
     {
         condition = function(self)

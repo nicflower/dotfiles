@@ -1,6 +1,7 @@
 local ViMode = {
     -- get vim current mode, this information will be required by the provider
 
+
     -- and the highlight functions, so we compute it only once per component
     -- evaluation and store it as a component attribute
     init = function(self)
@@ -79,13 +80,12 @@ local ViMode = {
 
     -- characters long. Plus a nice Icon.
     provider = function(self)
-
-        return " %2("..self.mode_names[self.mode].."%)"
+        return "  %2("..self.mode_names[self.mode].."%) "
     end,
     -- Same goes for the highlight. Now the foreground will change according to the current mode.
     hl = function(self)
         local mode = self.mode:sub(1, 1) -- get only the first mode character
-        return { fg = self.mode_colors[mode], bold = true, }
+        return { fg = "black", bg = self.mode_colors[mode], bold = true, } --as fg should use the bg of the statusline, but I do not understand how to do it :((
     end,
     -- Re-evaluate the component only on ModeChanged event!
     -- Also allows the statusline to be re-evaluated when entering operator-pending mode
