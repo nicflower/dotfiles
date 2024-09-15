@@ -115,24 +115,24 @@ return {
 
             mason_lsp_config.setup_handlers {
                 function(server_name)
-                    require('lspconfig')[server_name].setup {
-                        capabilities = capabilities,
-                        settings = servers[server_name],
-                        filetypes = (servers[server_name] or {}).filetypes,
-                    }
-                end
-            }
-        end
-    },
-
-    {
-        'SmiteshP/nvim-navic',
-        dependencies = {
-            'neovim/nvim-lspconfig',
+                        require('lspconfig')[server_name].setup {
+                            capabilities = capabilities,
+                            settings = servers[server_name],
+                            filetypes = (servers[server_name] or {}).filetypes,
+                        }
+                    end
+                }
+            end
         },
-        config = function ()
-            local supportedLSP = {"lua_ls", "rust-analyzer"} -- can not find a smarter way, ideally we would like to get a list of all the installed lsp servers
-            local on_attach = function(client, bufnr)
+
+        {
+            'SmiteshP/nvim-navic',
+            dependencies = {
+                'neovim/nvim-lspconfig',
+            },
+            config = function ()
+                local supportedLSP = {"lua_ls", "rust_analyzer"} -- can not find a smarter way, ideally we would like to get a list of all the installed lsp servers
+                local on_attach = function(client, bufnr)
                 if client.server_capabilities.documentSymbolProvider then
                     local navic = require("nvim-navic")
                     navic.attach(client, bufnr)
