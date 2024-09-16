@@ -12,10 +12,5 @@ decorations = "None"
 startup_mode = "Maximized"
 
 [font]
-
-normal.family = "JetBrainsMono Nerd Font"
-bold.family = "JetBrainsMono Nerd Font"
-italic.family = "JetBrainsMono Nerd Font" 
-bold_italic.family = "JetBrainsMono Nerd Font"
-
-size = 15.0
+normal.family = "UbuntuMono Nerd Font"
+size = 16.0
