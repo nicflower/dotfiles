@@ -3,7 +3,7 @@
        "nvim-treesitter/nvim-treesitter",
        config = function()
            require("nvim-treesitter.configs").setup({
-               ensure_installed = {"c", "lua", "vim","vimdoc", "query", "rust" },
+               ensure_installed = {"c", "lua", "vim","vimdoc", "query", "rust", "elixir" },
                auto_install = true,
                hilight = {
                    enable = true,
